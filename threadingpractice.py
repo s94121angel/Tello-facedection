@@ -27,6 +27,7 @@ frameHeight = 480
 scale = 0.8
 
 '''影像偵測'''
+'''for facedection to bounding box'''
 # Get a reference to webcam #0 (the default one)
 video_capture = cv2.VideoCapture(0)
 
@@ -88,25 +89,19 @@ face_encodings = []
 face_names = []
 process_this_frame = True
 
-
+#畫面畫線
 def display(img):
     #cv2.line(影像, 開始座標, 結束座標, 顏色, 線條寬度)
     cv2.line(img,(int(frameWidth*2/3),0),(int(frameWidth*2/3),frameHeight),(0,255,255),3)
     cv2.line(img,(int(frameWidth/3),0),(int(frameWidth/3),frameHeight),(0,255,255),3)
     cv2.line(img,(0,int(frameHeight/3)),(frameWidth,int(frameHeight/3)),(0,255,255),3)
     cv2.line(img,(0,int(frameHeight*2/3)),(frameWidth,int(frameHeight*2/3)),(0,255,255),3)
-'''
-myDrone.takeoff()
-time.sleep(5)
-myDrone.rotate_clockwise(90)
-time.sleep(5)
-myDrone.land()
-
-
-
-''' 
+ 
 cap = cv2.VideoCapture(0)
 direction = 0
+
+#偵測臉太近or 太遠
+#To analysis face is too far or too close
 wid = 0
 frame_read = myDrone. get_frame_read()
 myDrone.takeoff()
