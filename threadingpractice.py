@@ -110,6 +110,8 @@ direction = 0
 wid = 0
 frame_read = myDrone. get_frame_read()
 myDrone.takeoff()
+
+#多線程1
 def imageshow():
     global direction
     global wid
@@ -201,7 +203,7 @@ def imageshow():
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 myDrone.land()
                 break
-
+#多線程2
 def tellocontrol():
     
     while True:
@@ -245,7 +247,8 @@ def tellocontrol():
             #print("相機往下飛")
         #else:
              #print("STAY")
-
+            
+#多線程3(手動控制)
 def handcontrol():
     function=''    
     while True:
